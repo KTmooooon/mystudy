@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping</title>
+
+    <link rel="stylesheet" href="./css/ktstyle.css">
+    <style>
+        *{
+            border: 0px solid black;
+        }
+        .picture >img{
+            width: 100%;
+            height: 400px;
+            opacity: 70%;
+            overflow: hidden;
+        }
+
+        .FFS{
+            margin-bottom: -10px;
+            padding-left: 200px;
+            font-size:40px;
+            font-weight: bold;
+        }
+
+        .keyword{
+            padding-top: 30px;
+            padding-left: 200px;
+            font-size: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .dropdown2{
+        position : relative;
+        display : inline-block;
+        }
+
+        .dropdown2-content{
+        display : none;
+        position : absolute;
+        z-index : 2; /*다른 요소들보다 앞에 배치*/
+        font-weight: 400;
+        background-color: #ffffff;
+        min-width : 200px;
+        }
+
+        .dropdown2-content a{
+        display : block;
+        text-decoration : none;
+        color : rgb(37, 37, 37);
+        font-size: 20px;
+        padding : 12px 20px;
+        }
+
+        .dropdown2-content a:hover{
+        background-color : #ececec
+        }
+
+        .dropdown2:hover .dropdown2-content {
+        display: block;
+        }
+
+        .sorting{
+            display: flex;
+            width: 500px;
+            height: 70px;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            margin: 10px;
+            background-color: rgb(236, 229, 229);
+            border-radius: 15px;
+            font-size: 30px;
+        }
+
+        .keysearch{
+            width: 500px;
+            height: 70px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 2px solid rgb(153, 151, 151);
+            border-radius: 10px;
+        }
+
+        .keysearch > div:nth-child(2) > button{
+            border-left: 1px solid black;
+            background-color: transparent;
+            color: rgb(122, 121, 121);
+        }
+
+        .big{
+            width: 100%;
+            height: 4500px;
+            display: flex;
+            margin-left: 50px;
+            justify-content: center;
+            padding-top: 30px;
+            
+        }
+
+        .categories{
+            width: 500px;
+            height: 4500px;
+        }
+
+        .products{
+            margin-left: 100px;
+            padding-top: 50px;
+            width: 70%;
+            height: 4500px;
+        }
+        
+        .products1{
+            width: 100%;
+            height: 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .num{
+            width: 100%;
+            height: 20%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding-left: 800px;
+            margin-top: -300px;
+        }
+
+        .num > p{
+            width: 70px;
+            height: 70px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid orange;
+            border-radius: 15px;
+            font-size: 25px;
+        }
+
+        .num > p:hover{
+            cursor: pointer;
+            background-color: greenyellow;
+        }
+
+        .description{
+            width: 22%;
+            border: 2px solid orange;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .description > div{
+            display:flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .description > div > h3{
+            border: 2px solid orange;
+            border-radius: 15px;
+            color: rgb(22, 172, 22);
+            padding: 5px;
+        }
+
+        .description > div > h3:hover{
+            background-color: orange;
+            color: white;
+            transition-duration: 0.5s;
+        }
+
+        .description > img{
+            width: 100%;
+            height: 200px;
+            border-radius: 15px;
+            border: none;
+        }
+
+        .description:hover{
+            box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+        }
+
+        .description > img:hover{
+            transform:scale(1.2); 
+            transition: transform 0.5s;
+        }
+
+        .description > p {
+            padding-left: 10px;
+            font-weight: bold;
+            font-size: 15px;
+        }
+
+        .cate{
+            padding-top: 30px;
+            padding-left: 30px;
+            font-size: 30px;
+            font-weight: bold;
+            height: 50px;
+        }
+
+        .menu{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+
+        .menu > div{
+            font-size: 20px;
+        }
+
+        .aline > a{
+            text-decoration-line: none;
+        }
+
+        .aline > a:hover{
+            cursor: pointer;
+            text-decoration-line: underline;
+        }
+        .rangeInput{
+        margin-top: 20px;
+        margin-left: 50px;
+        width: 80%;
+        background: linear-gradient(to right, #FFE283 0%, #FFE283 50%, #ececec 50%, #ececec 100%);
+        border-radius: 8px;
+        outline: none;
+        transition: background 450ms ease-in;
+        -webkit-appearance: none;
+        accent-color: #64ca35;
+        }
+
+        .checkbox{
+            padding-left: 30px;
+        }
+
+        .featured{
+            width: 100%;
+            height: 500px;
+        }
+
+        .f1{
+            padding-left: 20px;
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .f1 > img{
+            width: 40%;
+            height: 40%;
+        }
+
+        .f1 > img:hover{
+            cursor: grab;
+            transform:scale(1.2); 
+            transition: transform 0.5s;
+        }
+
+        .f1 > div{
+            margin-top: -20px;
+            margin-left: -40px;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .view{
+            width: 100%;
+            height: 70px;
+            padding-top: 30px;
+        }
+
+        .view > p{
+            padding-top: 10px;
+            margin-left: 15px;
+            text-align: center;
+            color: green;
+            font-weight: bold;
+            font-size: 20px;
+            border: 2px solid orange;
+            border-radius: 20px;
+            background-color: white;
+            width: 90%;
+            height: 80%;
+        }
+
+        .view > p:hover{
+            cursor: pointer;
+            background-color: orange;
+            color: white;
+            transition-duration: 0.5s;
+        }
+
+        .pic{
+            position: relative;
+            padding-top: 50px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="navigation">
+        <div class="head">
+            <div>
+                🌐 123 Street, New York &nbsp&nbsp&nbsp
+                💌 Email@Example.com
+            </div>
+            <div>
+                Privacy Policy / Terms of Use / Sales and Refunds
+            </div>
+        </div> <!--head-->
+        
+        <div class="head-sec">
+            <h1 style="color: green;">Fruitables</h1>
+            <div class="content">
+                <a href="./index.html">Home</a> &nbsp;&nbsp;&nbsp;
+                <a href="./shop.html">Shop</a> &nbsp;&nbsp;&nbsp;
+                <a href="">Shop Detail</a> &nbsp;&nbsp;&nbsp;
+                <div class="dropdown">
+                    <span class="dropbtn">Pages</span>
+                    <div class="dropdown-content">
+                    <a href="#">Cart</a>
+                    <a href="#">Chekout</a>
+                    <a href="#">Testimonial</a>
+                    </div>
+                </div>  &nbsp;&nbsp;&nbsp;
+                <a href="./contact.html">Contact</a>
+            </div> <!-- content -->
+            <div class="button1">
+                <button>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                    </svg>
+                </button>
+                <button>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16">
+                    <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+                    </svg>
+                </button>
+                <button>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                    </svg>
+                </button>
+            </div> <!-- button -->
+        </div> <!-- head-sec -->
+    </div> <!--navigation-->
+
+    <div class="picture">
+        <img src="https://www.paulaschoice.co.kr/on/demandware.static/-/Sites-paulaschoice_kr-Library/default/dwc0bf96ac/images/expert-advice/076.jpg" alt="">
+    </div> <!--picture-->
+
+    <div class="FFS">
+        <p>Fresh fruits shop</p>
+    </div> <!--FFS-->
+    <div class="keyword">
+        <div class="keysearch">
+            <div>
+                <input type="text">
+            </div>
+            <div>
+                <button>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="55" height="55" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16" >
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                    </svg>
+                <button>
+            </div>
+        </div>
+
+        <div class="sorting">
+            <p>Default Sorting</p>
+            <div class="dropdown2">
+                
+                <p class="dropbtn2">Nothing ▽</p>
+                <div class="dropdown2-content">
+                <a href="#">Popularity</a>
+                <a href="#">Organic</a>
+                <a href="#">Fantastic</a>
+                </div>
+                
+            </div>
+        </div>
+    </div> <!--keyword-->
+    <div class="big">
+        <div class="categories">
+            <div class="cate">
+                Categories
+            </div>
+            <div class="menu">
+                <div>
+                    <p class="aline">
+                        <a href="#">🍏 Apples</a> 
+                    </p>
+                    <p class="aline">
+                        <a href="#">🍏 Oranges</a>
+                    </p>
+                    <p class="aline">
+                        <a href="#">🍏 Strawberry</a>
+                    </p>
+                    <p class="aline">
+                        <a href="#">🍏 Banana</a> 
+                    </p>
+                    <p class="aline">
+                        <a href="#">🍏 Pumpkin</a> 
+                    </p>
+                </div>
+
+                <div>
+                    <p>(3)</p>
+                    <p>(5)</p>
+                    <p>(2)</p>
+                    <p>(8)</p>
+                    <p>(5)</p>
+                </div>
+            </div> <!--menu-->
+
+            <div class="cate">
+                Amount
+            </div>
+            
+            <div>
+                <input id="rangeInput" class="rangeInput" style="" max="500" min="0" step="1" type="range" />
+            </div>
+
+            <div class="cate">
+                Additional
+            </div>
+
+            <div class="checkbox">
+                <div>
+                    <p><input type="checkbox">   Organic</p>
+                    <p><input type="checkbox">   Fresh</p>
+                    <p><input type="checkbox">   Sales</p>
+                    <p><input type="checkbox">   Discount</p>
+                    <p><input type="checkbox">   Expired</p>
+                </div>
+            </div>
+            
+            <div class="cate">
+                Featured products
+            </div>
+
+            <div class="featured">
+                <div class="f1">
+                    <img src="https://themewagon.github.io/fruitables/img/featur-1.jpg" alt="">
+                    <div>
+                        <p>Peach</p>
+                    <p>⭐⭐⭐⭐⭐</p>
+                    <span>2.99 $</span>
+                    <span style="color: red; text-decoration: line-through;">4.11$</span> 
+                    </div>
+                    
+                </div>
+                <div class="f1">
+                    <img src="https://themewagon.github.io/fruitables/img/featur-3.jpg" alt="">
+                    <div>
+                        <p>Brocoli</p>
+                    <p>⭐⭐⭐⭐ ☆</p>
+                    <span>1.99 $</span>
+                    <span style="color: red; text-decoration: line-through;">2.55$</span> 
+                    </div>
+                    
+                </div>
+                <div class="f1">
+                    <img src="https://themewagon.github.io/fruitables/img/featur-2.jpg" alt="">
+                    <div>
+                        <p>Strawberry</p>
+                    <p>⭐⭐⭐⭐ ☆</p>
+                    <span>3.99 $</span>
+                    <span style="color: red; text-decoration: line-through;">5.67$</span> 
+                    </div>
+                    
+                </div>
+                
+            </div> <!--featured-->
+
+            <div class="view">
+                <p>View More</p>
+            </div>
+
+            <div class="pic">
+                <img src="https://themewagon.github.io/fruitables/img/banner-fruits.jpg" alt="">
+            </div>
+
+            
+
+
+        </div> <!--categories-->
+    
+        <div class="products">
+            <div class="products1">
+                <div class="description">
+                    <img src="https://themewagon.github.io/fruitables/img/fruite-item-5.jpg" alt="">
+                    <p style="font-size: 25px;">Grapes</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing<br> elit sed do eiusmod te incididunt</p>
+                    <div>
+                        <h2>$4.99 / kg</h2>
+                        <h3>🧺 Add to cart</h3>
+                    </div>
+                </div>
+                <div class="description">
+                    <img src="https://themewagon.github.io/fruitables/img/fruite-item-3.jpg" alt="">
+                    <p style="font-size: 25px;">Banana</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing<br> elit sed do eiusmod te incididunt</p>
+                    <div>
+                        <h2>$3.77 / kg</h2>
+                        <h3>🧺 Add to cart</h3>
+                    </div>
+                </div>
+                <div class="description">
+                    <img src="https://themewagon.github.io/fruitables/img/fruite-item-4.jpg" alt="">
+                    <p style="font-size: 25px;">Apricots</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing<br> elit sed do eiusmod te incididunt</p>
+                    <div>
+                        <h2>$3.49 / kg</h2>
+                        <h3>🧺 Add to cart</h3>
+                    </div>
+                </div>
+                <div class="description">
+                    <img src="https://themewagon.github.io/fruitables/img/fruite-item-2.jpg" alt="">
+                    <p style="font-size: 25px;">Raspberries</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing<br> elit sed do eiusmod te incididunt</p>
+                    <div>
+                        <h2>$2.99 / kg</h2>
+                        <h3>🧺 Add to cart</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="products1">
+                <div class="description">
+                    <img src="https://themewagon.github.io/fruitables/img/featur-2.jpg" alt="">
+                    <p style="font-size: 25px;">Strawberry</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing<br> elit sed do eiusmod te incididunt</p>
+                    <div>
+                        <h2>$4.99 / kg</h2>
+                        <h3>🧺 Add to cart</h3>
+                    </div>
+                </div>
+                <div class="description">
+                    <img src="https://themewagon.github.io/fruitables/img/single-item.jpg" alt="">
+                    <p style="font-size: 25px;">Brocoli</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing<br> elit sed do eiusmod te incididunt</p>
+                    <div>
+                        <h2>$3.77 / kg</h2>
+                        <h3>🧺 Add to cart</h3>
+                    </div>
+                </div>
+                <div class="description">
+                    <img src="https://themewagon.github.io/fruitables/img/vegetable-item-5.jpg" alt="">
+                    <p style="font-size: 25px;">Potato</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing<br> elit sed do eiusmod te incididunt</p>
+                    <div>
+                        <h2>$3.49 / kg</h2>
+                        <h3>🧺 Add to cart</h3>
+                    </div>
+                </div>
+                <div class="description">
+                    <img src="https://themewagon.github.io/fruitables/img/fruite-item-1.jpg" alt="">
+                    <p style="font-size: 25px;">Orange</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing<br> elit sed do eiusmod te incididunt</p>
+                    <div>
+                        <h2>$2.99 / kg</h2>
+                        <h3>🧺 Add to cart</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="products1">
+                <div class="description">
+                    <img src="https://themewagon.github.io/fruitables/img/featur-2.jpg" alt="">
+                    <p style="font-size: 25px;">Strawberry</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing<br> elit sed do eiusmod te incididunt</p>
+                    <div>
+                        <h2>$4.99 / kg</h2>
+                        <h3>🧺 Add to cart</h3>
+                    </div>
+                </div>
+                <div class="description">
+                    <img src="https://themewagon.github.io/fruitables/img/single-item.jpg" alt="">
+                    <p style="font-size: 25px;">Brocoli</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing<br> elit sed do eiusmod te incididunt</p>
+                    <div>
+                        <h2>$3.77 / kg</h2>
+                        <h3>🧺 Add to cart</h3>
+                    </div>
+                </div>
+                <div class="description">
+                    <img src="https://themewagon.github.io/fruitables/img/vegetable-item-5.jpg" alt="">
+                    <p style="font-size: 25px;">Potato</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing<br> elit sed do eiusmod te incididunt</p>
+                    <div>
+                        <h2>$3.49 / kg</h2>
+                        <h3>🧺 Add to cart</h3>
+                    </div>
+                </div>
+                <div class="description">
+                    <img src="https://themewagon.github.io/fruitables/img/fruite-item-1.jpg" alt="">
+                    <p style="font-size: 25px;">Orange</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing<br> elit sed do eiusmod te incididunt</p>
+                    <div>
+                        <h2>$2.99 / kg</h2>
+                        <h3>🧺 Add to cart</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="num">
+                <p> << </p>
+                <p> 1 </p>
+                <p> 2 </p>
+                <p> 3 </p>
+                <p> 4 </p>
+                <p> 5 </p>
+                <p> 6 </p>
+                <p> >> </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

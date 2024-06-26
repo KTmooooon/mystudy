@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruitables-Vegetables</title>
+
+    <style>
+
+        *{
+            border: 0px solid black;
+        }
+        .navigation{
+            position: fixed;
+            top: 0;
+            background-color: rgb(255, 255, 255);
+            width: 100%;
+            z-index: 10;
+        }
+
+        .head{
+            height: 50px;
+            background-color: greenyellow;
+            border-radius: 15px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-left: 220px;
+            padding-right: 220px;
+        }
+
+        .head-sec{
+            height: 110px;
+            background-color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-left: 215px;
+            padding-right: 215px;
+        }
+
+        .head-sec > h1{
+            font-size: 70px;
+            font-weight: bold;
+        }
+
+        .content{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 35px;
+            font-weight: bold;
+        }
+
+        .button1{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 200px;
+            height: 50px;
+        }
+
+        .button1 > button{
+            color: rgb(142, 206, 45);
+            background-color: transparent;
+            border-radius: 50%;
+            width: 25%;
+            height: 100%;
+        }
+
+        .button1 > button:hover{
+            cursor: pointer;
+            color: orange;
+        }
+
+        .main{
+            padding-top: 150px;
+            width: 100%;
+            height: 700px;
+            
+        }
+
+        
+        .main > img{
+            opacity: 20%;
+            width: 100%;
+            height: 700px;
+            z-index: 1;
+        }
+        
+        .main-text{
+            position: absolute;
+            top: 10%;
+            left: 0%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 600px;
+            width: 100%;
+        }
+
+        .search{
+            position: absolute;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: white;
+            border: 2px solid orange;
+            border-radius: 15px;
+            width: 500px;
+            height: 60px;
+        }
+
+        .search-bar{
+            border-radius: 15px;
+            padding: 5px;
+        }
+
+        .main-left > div:nth-child(1){
+            font-weight: bold;
+            color: orange;
+            font-size: 20px;
+        }
+
+        .main-left > div:nth-child(2){
+            font-weight: bold;
+            color: green;
+            font-size: 30px;
+        }
+
+        .fruit{
+            padding-top: 100px;
+        }
+
+        .fruit > img{
+            width: 700px;
+            height: 500px;
+        }
+
+        .benefits{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: white;
+            padding: 50px;
+            padding-left: 500px;
+            padding-right: 500px;
+
+        }
+
+        .search-button{
+            background-color:rgb(83, 117, 32);
+            color: white;
+            font-weight: bold;
+            border-radius: 15px;
+            width: 30%;
+            height: 100%;
+        }
+
+        .search-button:hover{
+            background-color: orange;
+            transition-duration: 0.5s;
+            cursor: pointer;
+        }
+
+        .box{
+            background-color: rgb(241, 240, 240);
+            width: 400px;
+            height: 400px;
+            text-align: center;
+            padding-top: 20px;
+        }
+        
+        .box > img{
+            width: 200px;
+            height: 200px;
+        }
+        .dropdown{
+        position : relative;
+        display : inline-block;
+        }
+
+        .dropdown-content{
+        display : none;
+        position : absolute;
+        z-index : 2; /*다른 요소들보다 앞에 배치*/
+        font-weight: 400;
+        background-color: #ffffff;
+        min-width : 200px;
+        }
+
+        .dropdown-content a{
+        display : block;
+        text-decoration : none;
+        color : rgb(37, 37, 37);
+        font-size: 20px;
+        padding : 12px 20px;
+        }
+
+        .dropdown-content a:hover{
+        background-color : #ececec
+        }
+
+        .dropdown:hover .dropdown-content {
+        display: block;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="navigation">
+        <div class="head">
+            <div>
+                🌐 123 Street, New York &nbsp&nbsp&nbsp
+                💌 Email@Example.com
+            </div>
+            <div>
+                Privacy Policy / Terms of Use / Sales and Refunds
+            </div>
+        </div> <!--head-->
+        
+        <div class="head-sec">
+            <h1 style="color: green;">Fruitables</h1>
+            <div class="content">
+                <a href="./index.html ">Home</a> &nbsp;&nbsp;&nbsp;
+                <a href="./shop.html">Shop</a> &nbsp;&nbsp;&nbsp;
+                <a href="">Shop Detail</a> &nbsp;&nbsp;&nbsp;
+                <div class="dropdown">
+                    <span class="dropbtn">drop down</span>
+                    <div class="dropdown-content">
+                    <a href="#">Cart</a>
+                    <a href="#">Chekout</a>
+                    <a href="#">Testimonial</a>
+                    </div>
+                </div>  &nbsp;&nbsp;&nbsp;
+                <a href="./contact.html">Contact</a>
+            </div> <!-- content -->
+            <div class="button1">
+                <button>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                    </svg>
+                </button>
+                <button>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16">
+                    <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+                    </svg>
+                </button>
+                <button>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                    </svg>
+                </button>
+            </div> <!-- button1 -->
+        </div> <!-- head-sec -->
+    </div> <!--navigation-->
+
+    <div class="main">
+        <img src="https://m.segye.com/content/image/2021/04/06/20210406516065.jpg" alt="">
+        <div class="main-text">
+            <div class="main-left">
+                <div>
+                    <h2>100% Organic Foods</h2>
+                </div>
+                <div>
+                    <h1>Organic Veggies & <br>
+                    Fruits Foods </h1>
+                </div>
+                <div class="search">
+                    <div class="search-bar">
+                        <input type="text" required>
+                        
+                    </div>
+                    <button class="search-button">
+                        <h2> Submit Now </h2>
+                    </button>
+                </div>
+            </div>
+            <div class="fruit">
+                <img src="https://cdn.healthinnews.co.kr/news/photo/202311/41949_43867_2817.jpg" alt="">
+            </div>
+        </div>
+    </div> <!-- main -->
+
+    <div class="benefits">
+        <div class="box">
+            <img src="./images/icon_1.png" alt="">
+            <h1>Free Shipping</h1>
+            <h2>Free on order over $300</h2>
+        </div>
+        <div class="box">
+            <img src="./images/icon_2.png" alt="">
+            <h1>Security Payment</h1>
+            <h2>100% Security Payment</h2>
+        </div>
+        <div class="box">
+            <img src="./images/icon_3.png" alt="">
+            <h1>30 Day Return</h1>
+            <h2>30 day money guarantee</h2>
+        </div>
+        <div class="box">
+            <img src="./images/icon_4.png" alt="">
+            <h1>24/7 Support</h1>
+            <h2>Support every time fast</h2>
+            
+        </div>
+
+    </div> <!-- benefits -->
+
+    <div class="products">
+
+    </div>
+
+    <br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>
